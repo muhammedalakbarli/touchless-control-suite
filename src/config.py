@@ -26,3 +26,18 @@ class Config:
 
     # Safety
     FAILSAFE = False
+# src/config.py
+
+CAMERA_INDEX = 0
+CAM_WIDTH = 1280
+CAM_HEIGHT = 720
+
+SMOOTHING = 7  # bigger = smoother but slower
+
+MAX_HANDS = 2
+
+RIGHT_HAND = "Right"
+LEFT_HAND = "Left"
+
+CLICK_DISTANCE = 35
+SCROLL_DISTANCE = 40
