@@ -1,0 +1,268 @@
+/* ============================
+   Touchless Control Suite
+   PRO UI (Tony Stark vibe)
+   ============================ */
+
+:root {
+  --bg-0: #050607;
+  --bg-1: #0a0c10;
+  --bg-2: #10131a;
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.62);
+
+  --glass: rgba(10, 12, 16, 0.42);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --cyan: #00f5ff;
+  --cyan-soft: rgba(0, 245, 255, 0.22);
+
+  --shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-0);
+}
+
+/* ============================
+   Background: premium gradient
+   ============================ */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 15%, rgba(0, 245, 255, 0.12), transparent 35%),
+    radial-gradient(circle at 70% 35%, rgba(255, 255, 255, 0.06), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(0, 245, 255, 0.07), transparent 55%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Soft vignette */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ============================
+   Three.js Canvas
+   ============================ */
+
+#three {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ============================
+   Camera Preview (bottom-right)
+   ============================ */
+
+#video {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+
+  width: 300px;
+  height: 210px;
+
+  border-radius: 18px;
+  object-fit: cover;
+
+  transform: scaleX(-1);
+
+  opacity: 0.16;
+  z-index: 6;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+}
+
+/* Overlay landmarks drawn on top of preview */
+#overlay {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+
+  width: 300px;
+  height: 210px;
+
+  border-radius: 18px;
+  z-index: 7;
+
+  pointer-events: none;
+
+  opacity: 0.55;
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.18));
+}
+
+/* ============================
+   UI Panel (top-left)
+   ============================ */
+
+#ui {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 20;
+
+  width: 360px;
+  padding: 16px 16px 14px;
+
+  border-radius: 18px;
+
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+
+  box-shadow: var(--shadow);
+}
+
+#ui-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+#badge {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  color: rgba(0, 245, 255, 0.92);
+  background: rgba(0, 245, 255, 0.08);
+  border: 1px solid rgba(0, 245, 255, 0.18);
+
+  box-shadow: 0 0 0 6px rgba(0, 245, 255, 0.03);
+}
+
+#status {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+#info {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: pre-line;
+  color: var(--muted);
+}
+
+/* ============================
+   Footer branding
+   ============================ */
+
+#footer {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 20;
+
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+#footer b {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ============================
+   Loading Screen
+   ============================ */
+
+#loading {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at 30% 25%, rgba(0, 245, 255, 0.08), transparent 45%),
+    linear-gradient(180deg, #07080b, #040506);
+}
+
+.loading-title {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.loading-sub {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.2px;
+}
+
+/* ============================
+   Responsive
+   ============================ */
+
+@media (max-width: 900px) {
+  #ui {
+    width: 320px;
+  }
+
+  #video, #overlay {
+    width: 240px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 520px) {
+  #ui {
+    width: calc(100vw - 36px);
+  }
+
+  #footer {
+    display: none;
+  }
+
+  #video, #overlay {
+    display: none;
+  }
+}
