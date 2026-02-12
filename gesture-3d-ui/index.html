@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Touchless Control Suite | Gesture 3D UI</title>
+
+  <!-- Basic meta (LinkedIn preview üçün) -->
+  <meta name="description" content="A real-time gesture-based 3D UI demo using MediaPipe + Three.js. Right hand rotates, left hand zooms. Built for accessibility and human-computer interaction." />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading">
+    <div class="loading-title">Touchless Control Suite</div>
+    <div class="loading-sub">Gesture 3D UI • Initializing camera & tracking...</div>
+  </div>
+
+  <!-- UI Panel -->
+  <div id="ui">
+    <div id="ui-header">
+      <div id="title">Touchless Control Suite</div>
+      <div id="badge">LIVE</div>
+    </div>
+
+    <div id="status">Loading...</div>
+    <div id="info"></div>
+  </div>
+
+  <!-- Branding Footer -->
+  <div id="footer">
+    Built by <b>Muhammad Alakbarli</b> • MediaPipe + Three.js • Real-time tracking
+  </div>
+
+  <!-- Video source (hidden, but required) -->
+  <video id="video" autoplay playsinline></video>
+
+  <!-- Overlay (hand landmarks) -->
+  <canvas id="overlay"></canvas>
+
+  <!-- Three.js canvas -->
+  <canvas id="three"></canvas>
+
+  <!-- MediaPipe scripts (UMD) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <!-- App -->
+  <script type="module" src="./app.js"></script>
+
+</body>
+</html>
