@@ -1,53 +1,61 @@
-# Touchless Control Suite 🎯  
-Hand & Face Tracking Mouse Controller (MediaPipe + OpenCV)
+# Touchless Control Suite 🎯
 
-Touchless Control Suite is a real-time computer vision project that lets you control your mouse using:
-- ✋ Hand gestures (move, click, scroll, drag)
-- 🙂 Face tracking (move with nose/head, click with facial gestures)
+A real-time **gesture-based 3D UI demo** built with **MediaPipe Hands + Three.js**.
 
-Built for accessibility, touchless UI experiments, and portfolio-grade CV projects.
+Control a 3D object without touching your mouse:
+- **Right hand** → Rotate  
+- **Left hand (pinch)** → Zoom  
+- **Right fist** → Pause / Resume  
 
----
-
-## 🚀 Features
-
-### ✅ Hand Mode (Virtual Mouse)
-- Move cursor with index finger
-- Click with thumb + index pinch
-- Scroll with two-finger gesture
-- Drag & drop with fist gesture
-- Two-hand support (Ironman-style control)
-
-### ✅ Face Mode (Accessibility)
-- Move cursor using face tracking (nose/head)
-- Click using a facial gesture (currently being improved)
+This project is designed for **Human-Computer Interaction (HCI)**, accessibility experiments, and portfolio-grade computer vision demos.
 
 ---
 
-## 🧠 Why this project?
-This is not just a demo.
-It is a real engineering project that teaches:
+## 🚀 Live Demo (GitHub Pages)
 
-- Real-time AI + Computer Vision
-- Gesture recognition logic
-- Input control systems
-- Smoothing & stability (UX engineering)
-- Clean code structure and scalability
+👉 https://muhammedalakbarli.github.io/touchless-control-suite/
+
+> ⚠️ Note: Camera access is required.  
+> Works best on **Chrome Desktop**.
 
 ---
 
-## 🛠 Tech Stack
-- Python 3.11
-- OpenCV
-- MediaPipe
-- PyAutoGUI
-- NumPy
+## ✨ Features
+
+- ✅ Real-time hand tracking with **MediaPipe**
+- ✅ Two-hand support (right + left)
+- ✅ Smooth 3D rotation & zoom
+- ✅ Gesture UI overlay (hand landmarks)
+- ✅ Pause / resume mode (fist gesture)
+- ✅ Clean “HUD-style” interface
+- ✅ Fully static deploy (works on GitHub Pages)
 
 ---
 
-## 📦 Installation
+## 🎮 Controls
 
-### 1) Create and activate virtual environment
-```bash
-python -m venv venv
-venv\Scripts\activate
+| Gesture | Hand | Action |
+|--------|------|--------|
+| Open hand detected | Right | Rotate object |
+| Pinch (thumb + index) | Left | Zoom in/out |
+| Fist | Right | Pause / Resume |
+
+---
+
+## 🧠 Tech Stack
+
+- **MediaPipe Hands** (Google)
+- **Three.js**
+- Vanilla JavaScript (ES Modules)
+- HTML + CSS (HUD / UI design)
+- GitHub Pages deployment
+
+---
+
+## 🖼️ Preview
+
+### Main UI
+![alt text](image-1.png)
+Example:
+```md
+![alt text](image-2.png)
