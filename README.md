@@ -55,7 +55,5 @@ This project is designed for **Human-Computer Interaction (HCI)**, accessibility
 ## 🖼️ Preview
 
 ### Main UI
-![alt text](image-1.png)
-Example:
-```md
-![alt text](image-2.png)
+![Demo](./assets/preview-2.png)
+![Demo](./assets/preview-3.png)
